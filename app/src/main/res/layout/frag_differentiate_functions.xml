@@ -1,0 +1,957 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#edf0f8"
+    tools:context="com.example.jdslk.calculusprime.Frag_differentiate_functions">
+
+    <!-- TODO: Update blank fragment layout -->
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="320dp"
+    android:layout_marginStart="320dp">
+
+    <TextView
+        android:id="@+id/rad_deg_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/add_to_favorite"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
+        android:layout_alignStart="@+id/add_to_favorite"
+        android:text="@string/deg" />
+
+    <TextView
+        android:id="@+id/clear_screen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="clear"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/display_work"
+        android:layout_marginTop="80dp"
+        android:focusable="true"
+        android:clickable="true"
+        tools:ignore="HardcodedText,UnknownIdInLayout" />
+
+    <ImageButton
+        android:id="@+id/add_to_favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/clear_screen"
+        android:layout_marginTop="60dp"
+        android:focusable="true"
+        android:clickable="true"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_favorite_black_24dp"
+        tools:ignore="ContentDescription" />
+
+</RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="350dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:gravity="center"
+        tools:ignore="UselessParent">
+
+        <EditText
+            android:id="@+id/constant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_field_styling"
+            android:gravity="center"
+            android:hint="  2  "
+            android:inputType="textPersonName"
+            android:padding="0.5dp"
+            android:textSize="14sp"
+            tools:ignore="RtlSymmetry,SmallSp" />
+
+        <RelativeLayout
+            android:id="@+id/dydx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-15dp"
+            android:layout_toEndOf="@+id/constant"
+            android:layout_toRightOf="@+id/constant">
+
+            <TextView
+                android:id="@+id/numerator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginStart="1dp"
+                android:gravity="center"
+                android:inputType="textPersonName"
+                android:text="    d"
+                android:textSize="18sp"
+                tools:ignore="RtlSymmetry,SmallSp,TextViewEdits" />
+
+            <EditText
+                android:id="@+id/dash"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_below="@+id/numerator"
+                android:layout_marginBottom="1dp"
+                android:layout_marginLeft="13dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="1dp"
+                android:background="@drawable/gradient_background"
+                android:gravity="center"
+                android:hint="        "
+                android:padding="0.5dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/d"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/dash"
+                android:layout_marginLeft="1dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="0dp"
+                android:gravity="center"
+                android:inputType="textPersonName"
+                android:text=" d"
+                android:textSize="18sp"
+                tools:ignore="RtlSymmetry,SmallSp,TextViewEdits" />
+
+            <EditText
+                android:id="@+id/dydx_denominator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/dash"
+                android:layout_marginLeft="1dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="0dp"
+                android:layout_toEndOf="@+id/d"
+                android:layout_toRightOf="@+id/d"
+                android:background="@drawable/edit_text_field_styling"
+                android:gravity="center"
+                android:hint="  x  "
+                android:padding="0.5dp"
+                android:textSize="14sp" />
+        </RelativeLayout>
+
+
+
+
+
+
+        <!--NO MAN'S LAND-->
+
+
+
+
+
+        <!--MAIN UIs-->
+        <RelativeLayout
+            android:id="@+id/equation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/dydx"
+            android:layout_marginTop="-10dp"
+            android:layout_toRightOf="@+id/dydx">
+
+
+            <!--0.ANY ROOT-->
+            <RelativeLayout
+                android:id="@+id/any_root"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/any_root_constant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/edit_text_field_styling"
+                    android:gravity="center"
+                    android:hint="  2  "
+                    android:textSize="14sp"
+                    android:layout_marginEnd="5dp" />
+
+                <EditText
+                    android:id="@+id/pre_any_root_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:inputType="textPersonName"
+                    android:layout_toEndOf="@+id/any_root_constant"
+                    android:layout_toRightOf="@+id/any_root_constant"
+                    android:gravity="center"
+                    android:layout_marginRight="-1dp"
+                    android:layout_marginEnd="-1dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/edit_text_field_styling"
+                    android:hint="  3  "
+                    tools:ignore="RtlSymmetry,SmallSp"/>
+
+                <EditText
+                    android:id="@+id/post_any_root_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/any_root_exp"
+                    android:layout_toRightOf="@+id/any_root_exp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/edit_text_field_styling"
+                    android:gravity="center"
+                    android:hint="  2x "
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/any_root_exp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/pre_any_root_box"
+                    android:layout_toEndOf="@+id/pre_any_root_box"
+                    android:layout_marginRight="0dp"
+                    android:layout_marginTop="2dp"
+                    android:gravity="center"
+                    android:inputType="textPersonName"
+                    android:text="@string/square_root"
+                    android:textSize="20sp"
+                    tools:ignore="RtlSymmetry,SmallSp,TextViewEdits"
+                    android:layout_marginEnd="0dp" />
+
+            </RelativeLayout><!--ANY ROOT-->
+
+
+            <!--1.DIVIDE-->
+            <RelativeLayout
+                android:id="@+id/divide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="-5dp"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/numerator_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/edit_text_field_styling"
+                    android:gravity="center"
+                    android:hint="  2x "
+                    android:inputType="textPersonName"
+                    android:padding="0.5dp"
+                    android:textSize="14sp"
+                    tools:ignore="NotSibling,RtlSymmetry,SmallSp" />
+
+                <EditText
+                    android:id="@+id/denominator_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/numerator_box"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginStart="3dp"
+                    android:background="@drawable/edit_text_field_styling"
+                    android:padding="0.5dp"
+                    android:gravity="center"
+                    android:hint="  3x  " />
+
+
+            </RelativeLayout><!--DIVIDE-->
+
+
+            <!--2.POWER-->
+            <RelativeLayout
+                android:id="@+id/power"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/superScript_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/power_box"
+                    android:layout_toEndOf="@+id/power_box"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginTop="0dp"
+                    android:inputType="textPersonName"
+                    android:gravity="center"
+                    android:background="@drawable/edit_text_field_styling"
+                    android:hint="     "
+                    tools:ignore="SmallSp" />
+
+                <EditText
+                    android:id="@+id/power_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/edit_text_field_styling"
+                    android:gravity="center"
+                    android:hint="  2x "
+                    android:inputType="textPersonName"
+                    android:padding="0.5dp"
+                    android:textSize="14sp"
+                    tools:ignore="NotSibling,RtlSymmetry,SmallSp" />
+
+            </RelativeLayout><!--POWER-->
+
+
+            <!--3.LOG BASE-->
+            <RelativeLayout
+                android:id="@+id/log_base"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/log_base_constant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@drawable/edit_text_field_styling"
+                    android:gravity="center"
+                    android:hint="  2  "
+                    android:textSize="14sp"
+                    android:layout_marginEnd="5dp" />
+
+                <TextView
+                    android:id="@+id/log_base_exp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="-3dp"
+                    android:layout_toRightOf="@id/log_base_constant"
+                    android:gravity="center"
+                    android:inputType="textPersonName"
+                    android:text="@string/log"
+                    android:textSize="18sp"
+                    tools:ignore="RtlSymmetry,SmallSp,TextViewEdits"
+                    android:layout_toEndOf="@id/log_base_constant" />
+
+                <EditText
+                    android:id="@+id/superScript"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/log_base_exp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginEnd="1dp"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:background="@drawable/edit_text_field_styling"
+                    android:hint="  2  "
+                    android:layout_toEndOf="@+id/log_base_exp" />
+
+                <EditText
+                    android:id="@+id/log_base_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/superScript"
+                    android:layout_toRightOf="@+id/superScript"
+                    android:background="@drawable/edit_text_field_styling"
+                    android:gravity="center"
+                    android:hint="  2x "
+                    android:textSize="14sp" />
+
+            </RelativeLayout><!--LOG BASE-->
+
+
+            <!--4.SQUARED-->
+            <RelativeLayout
+                android:id="@+id/squared"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/superScript2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/squared_box"
+                    android:layout_toRightOf="@+id/squared_box"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginStart="3dp"
+                    android:gravity="center"
+                    android:layout_marginTop="-5dp"
+                    android:text="@string/_2"
+                    android:textSize="12sp" />
+
+                <EditText
+                    android:id="@+id/squared_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/edit_text_field_styling"
+                    android:gravity="center"
+                    android:hint="  2x "
+                    android:inputType="textPersonName"
+                    android:padding="0.5dp"
+                    android:textSize="14sp"
+                    tools:ignore="NotSibling,RtlSymmetry,SmallSp" />
+
+            </RelativeLayout><!--SQUARED-->
+
+
+            <!--5.SQUARE ROOT-->
+            <RelativeLayout
+                android:id="@+id/square_root"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/square_root_constant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@drawable/edit_text_field_styling"
+                    android:gravity="center"
+                    android:hint="  2  "
+                    android:textSize="14sp"
+                    android:layout_marginEnd="3dp" />
+
+                <EditText
+                    android:id="@+id/square_root_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/square_root_exp"
+                    android:layout_toRightOf="@+id/square_root_exp"
+                    android:background="@drawable/edit_text_field_styling"
+                    android:gravity="center"
+                    android:hint="  2x "
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/square_root_exp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginTop="-3dp"
+                    android:layout_toRightOf="@+id/square_root_constant"
+                    android:gravity="center"
+                    android:inputType="textPersonName"
+                    android:text="@string/square_root"
+                    android:textSize="18sp"
+                    tools:ignore="RtlSymmetry,SmallSp,TextViewEdits"
+                    android:layout_toEndOf="@+id/square_root_constant" />
+
+            </RelativeLayout><!--SQUARE ROOT-->
+
+
+            <!--6.e-->
+            <RelativeLayout
+                android:id="@+id/e"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/e_constant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@drawable/edit_text_field_styling"
+                    android:gravity="center"
+                    android:hint="  2  "
+                    android:textSize="14sp"
+                    android:layout_marginEnd="5dp" />
+
+                <EditText
+                    android:id="@+id/e_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/e_exp"
+                    android:layout_toRightOf="@+id/e_exp"
+                    android:background="@drawable/edit_text_field_styling"
+                    android:gravity="center"
+                    android:hint="  2x "
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/e_exp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="-3dp"
+                    android:gravity="center"
+                    android:inputType="textPersonName"
+                    android:layout_toRightOf="@+id/e_constant"
+                    android:text="@string/e_Log"
+                    android:textSize="18sp"
+                    tools:ignore="RtlSymmetry,SmallSp,TextViewEdits" />
+            </RelativeLayout><!--e-->
+
+
+            <!--7.ln-->
+            <RelativeLayout
+                android:id="@+id/ln"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/ln_constant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@drawable/edit_text_field_styling"
+                    android:gravity="center"
+                    android:hint="  2  "
+                    android:textSize="14sp"
+                    android:layout_marginEnd="5dp" />
+
+                <EditText
+                    android:id="@+id/ln_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/ln_exp"
+                    android:layout_toRightOf="@+id/ln_exp"
+                    android:background="@drawable/edit_text_field_styling"
+                    android:gravity="center"
+                    android:hint="  2x "
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/ln_exp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="-3dp"
+                    android:layout_toRightOf="@+id/ln_constant"
+                    android:gravity="center"
+                    android:inputType="textPersonName"
+                    android:text="@string/ln"
+                    android:textSize="18sp"
+                    tools:ignore="RtlSymmetry,SmallSp,TextViewEdits" />
+            </RelativeLayout><!--ln-->
+
+
+            <!--8.LOG TEN-->
+            <RelativeLayout
+                android:id="@+id/log_ten"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/log_ten_constant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@drawable/edit_text_field_styling"
+                    android:gravity="center"
+                    android:hint="  2  "
+                    android:textSize="14sp"
+                    android:layout_marginEnd="5dp" />
+
+                <EditText
+                    android:id="@+id/log_ten_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/log_ten_exp"
+                    android:layout_toRightOf="@+id/log_ten_exp"
+                    android:background="@drawable/edit_text_field_styling"
+                    android:gravity="center"
+                    android:hint="  2x "
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/log_ten_exp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="-3dp"
+                    android:layout_toRightOf="@+id/log_ten_constant"
+                    android:gravity="center"
+                    android:inputType="textPersonName"
+                    android:text="@string/log"
+                    android:textSize="18sp"
+                    tools:ignore="RtlSymmetry,SmallSp,TextViewEdits"
+                    android:layout_toEndOf="@+id/log_ten_constant" />
+            </RelativeLayout><!--LOG TEN-->
+
+
+            <!--9.COS-->
+            <RelativeLayout
+                android:id="@+id/cos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/cos_constant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@drawable/edit_text_field_styling"
+                    android:gravity="center"
+                    android:hint="  2  "
+                    android:textSize="14sp"
+                    android:layout_marginEnd="5dp" />
+
+                <EditText
+                    android:id="@+id/cos_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/cos_exp"
+                    android:layout_toRightOf="@+id/cos_exp"
+                    android:background="@drawable/edit_text_field_styling"
+                    android:gravity="center"
+                    android:hint="  2x "
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/cos_exp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="-3dp"
+                    android:layout_toRightOf="@+id/cos_constant"
+                    android:gravity="center"
+                    android:inputType="textPersonName"
+                    android:text="@string/cos"
+                    android:textSize="18sp"
+                    tools:ignore="RtlSymmetry,SmallSp,TextViewEdits"
+                    android:layout_toEndOf="@+id/cos_constant" />
+            </RelativeLayout><!--COS-->
+
+
+            <!--10.SIN-->
+            <RelativeLayout
+                android:id="@+id/sin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/sin_constant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@drawable/edit_text_field_styling"
+                    android:gravity="center"
+                    android:hint="  2  "
+                    android:textSize="14sp"
+                    android:layout_marginEnd="5dp" />
+
+                <EditText
+                    android:id="@+id/sin_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/sin_exp"
+                    android:layout_toRightOf="@+id/sin_exp"
+                    android:background="@drawable/edit_text_field_styling"
+                    android:gravity="center"
+                    android:hint="  2x "
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/sin_exp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="-3dp"
+                    android:layout_toRightOf="@+id/sin_constant"
+                    android:gravity="center"
+                    android:inputType="textPersonName"
+                    android:text="@string/sin"
+                    android:textSize="18sp"
+                    tools:ignore="RtlSymmetry,SmallSp,TextViewEdits"
+                    android:layout_toEndOf="@+id/sin_constant" />
+            </RelativeLayout><!--SIN-->
+
+
+            <!--11.TAN-->
+            <RelativeLayout
+                android:id="@+id/tan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/tan_constant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@drawable/edit_text_field_styling"
+                    android:gravity="center"
+                    android:hint="  2  "
+                    android:textSize="14sp"
+                    android:layout_marginEnd="5dp" />
+
+                <EditText
+                    android:id="@+id/tan_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/tan_exp"
+                    android:layout_toRightOf="@+id/tan_exp"
+                    android:background="@drawable/edit_text_field_styling"
+                    android:gravity="center"
+                    android:hint="  2x "
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tan_exp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="-3dp"
+                    android:layout_toRightOf="@+id/tan_constant"
+                    android:gravity="center"
+                    android:inputType="textPersonName"
+                    android:text="@string/tan"
+                    android:textSize="18sp"
+                    tools:ignore="RtlSymmetry,SmallSp,TextViewEdits"
+                    android:layout_toEndOf="@+id/tan_constant" />
+            </RelativeLayout><!--TAN-->
+
+
+            <!--12.COT-->
+            <RelativeLayout
+                android:id="@+id/cot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/cot_constant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@drawable/edit_text_field_styling"
+                    android:gravity="center"
+                    android:hint="  2  "
+                    android:textSize="14sp"
+                    android:layout_marginEnd="5dp" />
+
+                <EditText
+                    android:id="@+id/cot_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/cot_exp"
+                    android:layout_toRightOf="@+id/cot_exp"
+                    android:background="@drawable/edit_text_field_styling"
+                    android:gravity="center"
+                    android:hint="  2x "
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/cot_exp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="-3dp"
+                    android:layout_toRightOf="@+id/cot_constant"
+                    android:gravity="center"
+                    android:inputType="textPersonName"
+                    android:text="@string/cot"
+                    android:textSize="18sp"
+                    tools:ignore="RtlSymmetry,SmallSp,TextViewEdits"
+                    android:layout_toEndOf="@+id/cot_constant" />
+            </RelativeLayout><!--COT-->
+
+
+            <!--13.CSC-->
+            <RelativeLayout
+                android:id="@+id/csc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/csc_constant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@drawable/edit_text_field_styling"
+                    android:gravity="center"
+                    android:hint="  2  "
+                    android:textSize="14sp"
+                    android:layout_marginEnd="5dp" />
+
+                <EditText
+                    android:id="@+id/csc_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/csc_exp"
+                    android:layout_toRightOf="@+id/csc_exp"
+                    android:background="@drawable/edit_text_field_styling"
+                    android:gravity="center"
+                    android:hint="  2x "
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/csc_exp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="-3dp"
+                    android:layout_toRightOf="@+id/csc_constant"
+                    android:gravity="center"
+                    android:inputType="textPersonName"
+                    android:text="@string/csc"
+                    android:textSize="18sp"
+                    tools:ignore="RtlSymmetry,SmallSp,TextViewEdits"
+                    android:layout_toEndOf="@+id/csc_constant" />
+            </RelativeLayout><!--CSC-->
+
+
+            <!--14.SEC-->
+            <RelativeLayout
+                android:id="@+id/sec"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/sec_constant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@drawable/edit_text_field_styling"
+                    android:gravity="center"
+                    android:hint="  2  "
+                    android:textSize="14sp"
+                    android:layout_marginEnd="5dp" />
+
+                <EditText
+                    android:id="@+id/sec_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/sec_exp"
+                    android:layout_toRightOf="@+id/sec_exp"
+                    android:background="@drawable/edit_text_field_styling"
+                    android:gravity="center"
+                    android:hint="  2x "
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/sec_exp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="-3dp"
+                    android:layout_toRightOf="@+id/sec_constant"
+                    android:gravity="center"
+                    android:inputType="textPersonName"
+                    android:text="@string/sec"
+                    android:textSize="18sp"
+                    tools:ignore="RtlSymmetry,SmallSp,TextViewEdits"
+                    android:layout_toEndOf="@+id/sec_constant" />
+            </RelativeLayout><!--SEC-->
+
+
+            <!--DEFAULT-->
+            <RelativeLayout
+                android:id="@+id/coreEqu_cover"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <EditText
+                    android:id="@+id/coreEqu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginStart="5dp"
+                    android:background="@drawable/edit_text_field_styling"
+                    android:gravity="center"
+                    android:hint="  2x  "
+                    android:inputType="textPersonName"
+                    android:padding="0.5dp"
+                    android:textSize="14sp"
+                    tools:ignore="NotSibling,RtlSymmetry,SmallSp" />
+
+            </RelativeLayout><!--DEFAULT-->
+
+
+        </RelativeLayout>
+        <!--MAIN UIs-->
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

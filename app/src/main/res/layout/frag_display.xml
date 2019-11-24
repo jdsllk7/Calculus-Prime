@@ -1,0 +1,55 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#edf0f8"
+    tools:context="com.example.jdslk.calculusprime.Frag_display">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/rad_deg_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/add_to_favorite"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:layout_alignStart="@+id/add_to_favorite"
+            android:text="@string/deg" />
+
+        <TextView
+            android:id="@+id/clear_screen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="clear"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/display_work"
+            android:layout_marginTop="80dp"
+            android:focusable="true"
+            android:clickable="true"
+            tools:ignore="HardcodedText,UnknownIdInLayout" />
+
+        <ImageButton
+            android:id="@+id/add_to_favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/clear_screen"
+            android:layout_marginTop="60dp"
+            android:focusable="true"
+            android:clickable="true"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_favorite_black_24dp"
+            tools:ignore="ContentDescription" />
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

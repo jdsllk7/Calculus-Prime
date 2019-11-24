@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Calculus Prime</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="solution">Solution</string>
+    <string name="deg">deg</string>
+    <string name="calculus_prime">Calculus Prime</string>
+    <string name="sec">sec</string>
+    <string name="sin">sin</string>
+    <string name="tan">tan</string>
+    <string name="csc">csc</string>
+    <string name="cot">cot</string>
+    <string name="cos">cos</string>
+    <string name="square_root">√</string>
+    <string name="ln_log">ln</string>
+    <string name="e_log">e</string>
+    <string name="log">log</string>
+    <string name="_2">2</string>
+    <string name="ln">ln</string>
+    <string name="back">Back</string>
+    <string name="e_Log">e</string>
+    <string name="_2x">2x</string>
+    <string name="jdslk">jdslk</string>
+</resources>

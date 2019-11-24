@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    tools:context="com.example.jdslk.calculusprime.About_us">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/calculus_prime"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="100dp"
+        android:textSize="20sp"
+        android:textColor="#f2f2f2"
+        android:textStyle="bold"
+        android:layout_marginStart="110dp" />
+
+    <ImageButton
+        android:id="@+id/image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="140dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="130dp"
+        android:layout_alignTop="@+id/display_work"
+        android:layout_below="@+id/textView"
+        android:focusable="false"
+        android:clickable="false"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_if_pi_math_mathematics_3151572"
+        tools:ignore="UnknownId,UnknownIdInLayout" />
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_below="@+id/image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CalculusPrime_v1.0"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="30dp"
+        android:textSize="14sp"
+        android:textColor="#f2f2f2"
+        android:textStyle="normal"
+        android:layout_marginStart="120dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_below="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="calculusprime@gmail.com"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="30dp"
+        android:textSize="14sp"
+        android:textColor="#f2f2f2"
+        android:textStyle="normal"
+        android:layout_marginStart="100dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_below="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thank you for your support to make this product a success"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="90dp"
+        android:textSize="10sp"
+        android:textColor="#f2f2f2"
+        android:textStyle="normal"
+        android:layout_marginStart="50dp"
+        tools:ignore="SmallSp" />
+
+
+
+</RelativeLayout>
